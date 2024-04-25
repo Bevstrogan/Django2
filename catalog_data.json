@@ -1,0 +1,104 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Паста Арабьята",
+      "description": "Готовая паста в томатном соусе",
+      "image_preview": "",
+      "category": 2,
+      "price": 300,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "Блины с творогом",
+      "description": "Готовые блины с творогом",
+      "image_preview": "",
+      "category": 2,
+      "price": 150,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "name": "Пицца пепперони",
+      "description": "Замороженная пицца с пепперони",
+      "image_preview": "",
+      "category": 3,
+      "price": 279,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "name": "Пицца 4 сыра",
+      "description": "Замороженная пицца 4 сыра",
+      "image_preview": "",
+      "category": 3,
+      "price": 289,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "name": "Лампочка",
+      "description": "Лампочка 7W 550lm",
+      "image_preview": "",
+      "category": 1,
+      "price": 49,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "name": "Спички",
+      "description": "Спички хозяйственные 50 штук",
+      "image_preview": "",
+      "category": 1,
+      "price": 100,
+      "created_at": "2024-04-23",
+      "updated_at": "2024-04-23"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Хоз. товары",
+      "description": "Товары хозяйственного применения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Готовая еда",
+      "description": "Еда готовая к употреблению"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Полуфарикаты",
+      "description": "Продукты почти готовые к употреблению"
+    }
+  }
+]
