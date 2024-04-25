@@ -1,0 +1,26 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Хоз. товары",
+      "description": "Товары хозяйственного применения"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Готовая еда",
+      "description": "Еда готовая к употреблению"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Полуфарикаты",
+      "description": "Продукты почти готовые к употреблению"
+    }
+  }
+]
