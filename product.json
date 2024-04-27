@@ -3,8 +3,8 @@
     "model": "catalog.product",
     "pk": 8,
     "fields": {
-      "name": "Паста Арабьята",
-      "description": "Готовая паста в томатном соусе",
+      "name": "Салат цезарь",
+      "description": "Готовый салат с курой",
       "image_preview": "",
       "category": 2,
       "price": 300,

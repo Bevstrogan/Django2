@@ -1,42 +1,40 @@
 from django.core.management import BaseCommand
+from catalog.models import Category, Product
 import json
-from catalog.models import Product, Category
-
+from django.db import connection
 
 class Command(BaseCommand):
 
     @staticmethod
     def json_read_categories():
-        with open('categories.json', 'r', encoding="utf-8") as c_file:
-            c_data = c_file.read()
-            categories_list = json.loads(c_data)
-            return categories_list
-
+        with open('categories.json', encoding="UTF-8") as file:
+            data = json.load(file)
+            return data
 
     @staticmethod
     def json_read_products():
-        with open('product.json', 'r', encoding="utf-8") as p_file:
-            p_data = p_file.read()
-            products_list = json.loads(p_data)
-            return products_list
+        with open('product.json', encoding="UTF-8") as file:
+            data = json.load(file)
+            return data
 
     def handle(self, *args, **options):
-        Product.objects.all().delete()
-        Category.objects.all().delete()
+        with connection.cursor() as cursor:
+            cursor.execute('TRUNCATE TABLE catalog_category RESTART IDENTITY CASCADE;')
 
-        categories_for_create = []
-        products_for_create = []
+        product_for_create = []
+        category_for_create = []
 
-        for category_item in Command.json_read_categories():
-            categories_for_create.append(Category(**category_item['fields']))
+        for category in Command.json_read_categories():
+            category_for_create.append(
+            Category(id=category['pk'], name=category["fields"]["name"], description=category["fields"]["description"])
+        )
+        Category.objects.bulk_create(category_for_create)
 
-        Category.objects.bulk_create(categories_for_create)
-
-        for product_item in Command.json_read_products():
-            products_for_create.append(Product(name=product_item['fields']['name'],
-                                               description=product_item['fields']['description'],
-                                               image=product_item['fields']['image_preview'],
-                                               category=Category.objects.get(pk=product_item['fields']['category']),
-                                               price=product_item['fields']['price']))
-
-        Product.objects.bulk_create(products_for_create)
+        for product in Command.json_read_products():
+            product_for_create.append(
+            Product(id=product['pk'], name=product["fields"]["name"],
+                    description=product["fields"]["description"],
+                    category=Category.objects.get(pk=product["fields"]["category"]),
+                    price=product["fields"]["price"])
+            )
+        Product.objects.bulk_create(product_for_create)
