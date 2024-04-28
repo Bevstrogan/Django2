@@ -18,8 +18,8 @@ class Command(BaseCommand):
             return data
 
     def handle(self, *args, **options):
-        with connection.cursor() as cursor:
-            cursor.execute('TRUNCATE TABLE catalog_category RESTART IDENTITY CASCADE;')
+        Product.objects.all().delete()
+        Category.objects.all().delete()
 
         product_for_create = []
         category_for_create = []
