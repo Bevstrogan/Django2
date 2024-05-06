@@ -1,21 +1,20 @@
 {% extends 'catalog/base.html' %}
 {% load blog_tags %}
 {% block content %}
-    <div class="col-12">
-        <div class="row">
-
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">{{ object.title }}</h3>
-                        <img src="{{ blog.preview | media_filter }}">
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            {{object.content}}
-                        </p>
-                    </div>
-                    <div class="card-footer"></div>
+<div class="row text-center">
+        <div class="col-12">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">{{ blog.title }}</h3>
+                </div>
+                <div class="card-body">
+                    <img src= "{{ blog.preview | media_filter }}" height="200" class="img">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>{{ blog.content }}</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    Просмотры {{ blog.number_of_views }}
                 </div>
             </div>
         </div>
