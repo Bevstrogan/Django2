@@ -162,7 +162,7 @@
 
 
 <header data-bs-theme="dark">
-{% include 'includes/inc_menu.html' %}
+{% include 'catalog/includes/inc_menu.html' %}
 </header>
 
 <main>
@@ -171,10 +171,9 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Магазин</h1>
-        <p class="lead text-body-secondary">У Госслинга</p>
+        <p class="lead text-body-secondary">"У Госслинга"</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          <a class="btn btn-primary" href="{% url 'catalog:products_create' %}" role="button">Создать продукт</a>
         </p>
       </div>
     </div>

@@ -1,0 +1,19 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+    <div class="col-12">
+        <div class="row">
+            <div class="row-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <p> Вы действительно хотите удалить пост "{{object.title}}"?</p>
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                            <a href="{% url 'blog:list' %}" class="btn btn-primary">Отменить</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
