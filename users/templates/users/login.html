@@ -5,13 +5,14 @@
             <div class="col-4">
                 <div class="card">
                     <h3 class="card-title">
-                        Профиль
+                        Вход
                     </h3>
                     <div class="card-body">
                         <form method="post">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit" class="btn btn-success">Сохранить</button>
+                            <button type="submit" class="btn btn-success">Войти</button>
+                            <a class="p-l-2 btn btn-primary" href="{% url 'users:password_recovery' %}">Забыли пароль?</a>
                         </form>
                     </div>
                 </div>

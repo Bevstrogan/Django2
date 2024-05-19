@@ -173,7 +173,9 @@
         <h1 class="fw-light">Магазин</h1>
         <p class="lead text-body-secondary">"У Госслинга"</p>
         <p>
+          {% if user.is_authenticated %}
           <a class="btn btn-primary" href="{% url 'catalog:products_create' %}" role="button">Создать продукт</a>
+          {% endif %}
         </p>
       </div>
     </div>
