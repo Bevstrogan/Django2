@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Product(models.Model):
     name = models.CharField(
@@ -34,11 +36,18 @@ class Product(models.Model):
     updated_at = models.DateField(
         auto_now=True, verbose_name="Дата последнего изменения"
     )
+    publication_sign = models.BooleanField(verbose_name='Признак публикации', default=False, help_text="Укажите признак публикации")
 
+    owner = models.ForeignKey(User, verbose_name='Имя создателя', help_text='Укажите имя создателя товара', blank=True, null=True, on_delete=models.SET_NULL)
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["category"]
+        permissions = [
+            ("can_edit_publication_sign", "Can edit publication sign"),
+            ("can_edit_description", "Can edit description"),
+            ("cand_change_category", "Cand change category")
+        ]
 
     def __str__(self):
         return self.name

@@ -13,6 +13,11 @@ class StyleMixin(ModelForm):
             else:
                 field.widget.attrs['class'] = 'form-control'
 
+class ProductModeratorForm(StyleMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('description', 'category', 'publication_sign')
+
 
 class ProductForm(StyleMixin, forms.ModelForm):
     class Meta:
